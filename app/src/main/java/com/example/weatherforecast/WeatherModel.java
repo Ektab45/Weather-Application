@@ -17,7 +17,7 @@ public class WeatherModel {
 
     private String humidity;
 
-    public WeatherModel(String date, String search,
+    public WeatherModel(String date,
                         String city, String image, String desc,
                         String wind, String temp, String humidity ){
 

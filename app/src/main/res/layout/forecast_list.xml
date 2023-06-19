@@ -63,10 +63,6 @@
                 android:text="Degree"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
-
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

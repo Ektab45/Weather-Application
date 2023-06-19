@@ -176,9 +176,8 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < listArray.length(); i++) {
                 JSONObject listItem = listArray.getJSONObject(i);
 
-                String dateTxt = listItem.getString("dt_txt");
-                String[] dateTimeParts = dateTxt.split(" ");
-                String date = dateTimeParts[0];
+              
+                String date = convertTimestampToDate(listItem.getLong("dt"));
                 String time = convertTimestampToTime(listItem.getLong("dt"));
 
                 JSONObject mainObject = listItem.getJSONObject("main");
@@ -222,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
 
             long timestamp = jsonObject.getLong("dt");
             String date = convertTimestampToDate(timestamp);
-           // String wind = jsonObject.getString("speed");
+
             double temperatureInKelvin = mainObject.getDouble("temp");
             double temperatureInCelsius = temperatureInKelvin - 273.15;
             String temp = String.format("Temp \n"+" %.2f", temperatureInCelsius) + " °C";
@@ -241,7 +240,13 @@ public class MainActivity extends AppCompatActivity {
             descTv.setText(description);
             humidTv.setText("Humidity \n"+humid+ "%");
 
+
+
+
             Picasso.get().load(imageUrl).into(imageView);
+
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
